@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation"
+		value="false" />
+	<constant name="struts.devMode" value="true" />
+	
+		<package name="Redirections Package" extends="struts-default" namespace="/">
+
+		<action name="redirectUserCourseRegistration" class="com.pronatation.userSessionManagement.LoginSessionManager" method="execute">
+    		<result name="success">Dashboards/UserCourseRegistrationView.jsp</result>
+		</action>
+		
+		<action name="redirectAddChild" class="com.pronatation.userSessionManagement.LoginSessionManager" method="execute">
+    		<result name="success">Dashboards/AddChild.jsp</result>
+		</action>
+		
+	</package>
+
+	<package name="Login Package" extends="struts-default"
+		namespace="/">
+
+		<action name="Login" class="com.myapp.login.LoginAction">
+			<result name="success">Dashboards/Welcome.jsp</result>
+			<result name="input">Login.jsp</result>
+		</action>
+
+		<action name="adminLogin"
+			class="com.myapp.login.AdminLoginAction">
+			<result name="success">Dashboards/WelcomeAdmin.jsp</result>
+			<result name="input">AdminLogin.jsp</result>
+		</action>
+
+		<action name="Registration"
+			class="com.myapp.accountsManagement.RegistrationAction">
+			<result name="success">Dashboards/Welcome.jsp</result>
+			<result name="input">Login.jsp</result>
+		</action>
+
+	</package>
+
+
+	<package name="Course Registration Package"
+		extends="struts-default" namespace="/">
+
+
+		<action name="ChildRegistration"
+			class="com.pronatation.Child.ChildRegistrationAction">
+			<result name="success">Dashboards/Welcome.jsp</result>
+		</action>
+
+		<action name="UserCourseRegistration"
+			class="com.pronatation.Courses.CourseInscriptionAction"
+			method="execute">
+			<result name="success">Dashboards/UserCourseRegistrationView.jsp
+			</result>
+			<result name="input">Dashboards/Welcome.jsp</result>
+		</action>
+
+
+		<action name="ChildCourseRegistration"
+			class="com.pronatation.Courses.CourseInscriptionAction"
+			method="execute">
+			<result name="success">Dashboards/Welcome.jsp</result>
+			<result name="input">Dashboards/Welcome.jsp</result>
+
+		</action>
+		
+		<action name="InitUserCourseInscription"
+			class="com.pronatation.Courses.ListCoursesAction" method="execute">
+			<result name="success">Dashboards/UserCourseRegistrationView.jsp
+			</result>
+		</action>
+
+		<action name="InitChildCourseInscription"
+			class="com.pronatation.Courses.ChildCourseRegistrationViewInitializationAction" method="execute">
+			<result name="success">Dashboards/ChildCourseRegistrationView.jsp
+			</result>
+		</action>
+		
+		<action name="UserCourseHistory"
+			class="com.pronatation.Courses.CourseHistoryAction" method="execute">
+			<result name="success">Dashboards/UserCourseHistoryView.jsp
+			</result>
+		</action>
+
+	</package>
+
+
+	<package name="Admin Package" extends="struts-default" namespace="/">
+
+		<action name="ViewSession"
+			class="com.pronatation.Session.ViewSessionAction">
+			<result name="success">Dashboards/CreateSessionView.jsp</result>
+		</action>
+
+		<action name="CreateNewSession"
+			class="com.pronatation.Session.CreateSessionAction">
+			<result name="success">Dashboards/WelcomeAdmin.jsp</result>
+			<result name="input">Dashboards/CreateSessionView.jsp</result>
+		</action>
+		
+		<action name="CreateCourse"
+			class="com.pronatation.Courses.CreateCourseAction">
+			<result name="success">Dashboards/WelcomeAdmin.jsp</result>
+			<result name="input">Dashboards/CreateCourseView.jsp</result>
+		</action>
+		
+		<action name="listSessions"
+			class="com.pronatation.Session.ViewSessionAction">
+			<result name="success">Dashboards/CreateCourseView.jsp</result>
+		</action>
+		
+		<action name="gradeSwimmer"
+			class="com.pronatation.Grade.GradeSwimmerAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGrades</param>
+        		<param name="courseCode">${courseCode}</param>
+        	</result>
+		</action>
+		
+		<action name="ListGrades"
+			class="com.pronatation.Grade.ListGradesAction">
+			<result name="success">Dashboards/GradeSwimmerView.jsp</result>
+			<result name="input">Dashboards/GradeSwimmerView.jsp</result>
+		</action>
+		
+		<action name="ListCoursesForGrades"
+			class="com.pronatation.Courses.ListCoursesAction" method="execute">
+			<result name="success">Dashboards/GradeSwimmerView.jsp
+			</result>
+		</action>
+
+	</package>
+
+</struts>
