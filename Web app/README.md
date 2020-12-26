@@ -27,7 +27,7 @@ Entrez
 
 Une fois complétez, Telechargez et installer MongoDB Compass afin de se connecter en local vers la base de donnes qu'on vient de créer. Pour vous connecter à votre MongoDB local, vous définissez `Hostname` sur localhost et `Port` sur 27017. Ces valeurs sont par défaut pour toutes les connexions MongoDB locales (sauf si vous les avez modifiées). Appuyez sur Connect, et vous devriez voir les bases de données dans votre MongoDB local. 
 
-![DbConnection](/DbConnection.png)
+![DbConnection](./DbConnection.png)
 
 Ici, vous devriez pouvoir voir `MyDatabase`.
 
