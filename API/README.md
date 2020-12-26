@@ -7,7 +7,7 @@ Lancer cette application sur Tomcat v.9 dans localhost.
 
 Pour vous assurer que l'API fonctionne, vous devriez voir l'image ci-dessous à l'adresse http://localhost:8080/services/
 
-![jersey](/preview.png)
+![jersey](./preview.png)
 
 
 ## À ne pas oublier
